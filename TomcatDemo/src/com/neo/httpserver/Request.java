@@ -21,15 +21,12 @@ import java.io.InputStream;
  *
  */
 public class Request {
+	
 	private InputStream input;
 	private String uri;
 	
-	Request(InputStream input){
+	public Request(InputStream input){
 		this.input = input;
-	}
-	
-	public String getRequest(){
-		return null;
 	}
 	
 	public void parse(){
@@ -41,18 +38,19 @@ public class Request {
 		byte[] buffer = new byte[2048];
 		try{
 			i = input.read(buffer);
-		}catch(IOException e){
+		}
+		catch(IOException e){
 			e.printStackTrace();
 			i = -1;
 		}
 		for(int j = 0; j < i; j++){
-			request.append((char)buffer[i]);
+			request.append((char)buffer[j]);
 		}
 		System.out.println(request.toString());
 		uri = parseUri(request.toString());
 	}
 	
-	public String parseUri(String requestString){
+	private String parseUri(String requestString){
 		int index1, index2;
 		//the index of the first occurrence of the character in the character sequence 
 		//represented by this object, or -1 if the character does not occur.
