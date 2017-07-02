@@ -1,4 +1,4 @@
-package learn.exm02;
+package exm02.learn;
 
 import java.io.File;
 import java.io.IOException;

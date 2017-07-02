@@ -1,4 +1,4 @@
-package learn.exm01;
+package exm01.learn;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,5 +1,4 @@
-package learn.exm02;
-
+package exm01.learn;
 
 import java.io.File;
 import java.io.InputStream;
@@ -8,7 +7,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class HttpServer2 {
+public class HttpServer {
 	
 	
 	public static final String WEB_ROOT = 
@@ -22,7 +21,7 @@ public class HttpServer2 {
 //	ServerSocket serverSocket = null;
 
 	public static void main(String[] args) {
-		HttpServer2 server = new HttpServer2();
+		HttpServer server = new HttpServer();
 		server.await();
 	}
 	public void await() {
@@ -59,18 +58,6 @@ public class HttpServer2 {
 				response.setRequest(request);
 				response.sendStaticResource();
 				
-				//check if this is a request for a serlvet or a static resource
-				//a request for a servlet begins with "/servlet/"
-				if(request.getUri().startsWith("/servlet")){
-					ServletProcessor1 processor = new ServletProcessor1();
-					processor.process(request,response);
-				}
-				else{
-					StaticResourceProcessor processor = 
-							new StaticResourceProcessor();
-					processor.process(request,response);
-				}
-				
 				//Close the socket
 				socket.close();
 				
@@ -84,4 +71,3 @@ public class HttpServer2 {
 	}
 
 }
-
