@@ -1,4 +1,4 @@
-package exm02;
+package learn.exm02;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class ServletProcessor2 {
+public class ServletProcessor1 {
 	public void process(Request request, Response response){
 		String uri = request.getUri();
 		String servletName = uri.substring(uri.lastIndexOf("/")+1);
@@ -33,13 +33,11 @@ public class ServletProcessor2 {
 			e.printStackTrace();
 		}
 		Servlet servlet = null;
-		//here, it's changed from ServletProcess1
-		RequestFacade requestFacade = new RequestFacade(request);
-		ResponseFacade responseFacade = new ResponseFacade(response);
 		try {
 			servlet = (Servlet)myClass.newInstance();
-			//and here 
-			servlet.service((ServletRequest)requestFacade, (ServletResponse)responseFacade);
+			//注意这里，参数强制的向上转型
+			//
+			servlet.service((ServletRequest)request, (ServletResponse)response);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

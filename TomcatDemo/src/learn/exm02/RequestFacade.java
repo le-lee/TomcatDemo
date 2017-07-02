@@ -1,4 +1,4 @@
-package exm02;
+package learn.exm02;
 
 import java.io.BufferedReader;
 import java.io.IOException;
