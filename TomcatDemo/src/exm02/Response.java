@@ -100,12 +100,6 @@ public class Response implements ServletResponse{
 	}
 
 	@Override
-	public String getContentType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Locale getLocale() {
 		// TODO Auto-generated method stub
 		return null;
@@ -145,12 +139,6 @@ public class Response implements ServletResponse{
 
 	@Override
 	public void setBufferSize(int arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setCharacterEncoding(String arg0) {
 		// TODO Auto-generated method stub
 		
 	}

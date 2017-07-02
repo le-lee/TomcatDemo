@@ -10,7 +10,7 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class ServletProcessor1 {
+public class ServletProcessor2 {
 	public void process(Request request, Response response){
 		String uri = request.getUri();
 		String servletName = uri.substring(uri.lastIndexOf("/")+1);
@@ -33,11 +33,13 @@ public class ServletProcessor1 {
 			e.printStackTrace();
 		}
 		Servlet servlet = null;
+		//here, it's changed from ServletProcess1
+		RequestFacade requestFacade = new RequestFacade(request);
+		ResponseFacade responseFacade = new ResponseFacade(response);
 		try {
 			servlet = (Servlet)myClass.newInstance();
-			//注意这里，参数强制的向上转型
-			//
-			servlet.service((ServletRequest)request, (ServletResponse)response);
+			//and here 
+			servlet.service((ServletRequest)requestFacade, (ServletResponse)responseFacade);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
